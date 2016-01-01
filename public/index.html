@@ -93,6 +93,44 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 <i class="fa fa-camera-retro"></i> fa-camera-retro
 <i class="fa fa-bicycle"></i> bicycle icon here
+<table style='table-layout:fixed' class="table table-bordered">
+        
+        <!--    <th><a href="" ng-click="orderByField='sno'; reverseSort = !reverseSort">item</a></th> -->
+            <tr>
+            <th>#</th>
+            <th><a href="" ng-click="orderByField='sarea'; reverseSort = !reverseSort">sect</a></th>
+
+            <th><a href="" ng-click="orderByField='sbi'; reverseSort = !reverseSort">地點</a></th>
+
+
+
+            <th><a href="" ng-click="orderByField='sna'; reverseSort = !reverseSort">可借</a></th>
+            <th><a href="" ng-click="orderByField='bemp'; reverseSort = !reverseSort">可還</a></th>
+        </tr>
+
+
+
+
+        <!--    <th><a href="" ng-click="orderByField='mday'; reverseSort = !reverseSort">update</a></th>
+            <th><a href="" ng-click="orderByField='act'; reverseSort = !reverseSort">狀態 </a></th> -->
+                <!-- <th>update</th>  -->
+
+            <tr ng-repeat="msg in messages |  filter:query | orderBy:orderByField:reverseSort" >
+                <!-- <td>{{ msg.sno }}</td> -->
+                <td>{{ 1+$index }}</td>
+                <td>{{ msg.sarea }}</td>
+                <td>{{ msg.sna }}</td>
+                <td>{{ msg.sbi }}</td>
+                <td>{{ msg.bemp }}</td>
+                <!-- <td>{{ msg.mday}}</td> -->
+            <!--    <td>{{ msg.mday.substring(4, 6) }}/{{ msg.mday.substring(6, 8) }} {{ msg.mday.substring(8, 10) }}:{{ msg.mday.substring(10, 12) }}:{{ msg.mday.substring(12, 14) }}</td> -->
+
+    <!--    <td>{{ msg.mday.substring(8, 10) }}:{{ msg.mday.substring(10, 12) }}:{{ msg.mday.substring(12, 14) }}</td>
+
+                <td>{{ msg.act }}</td> -->
+
+            </tr>
+        </table>
 
 <table style='table-layout:fixed' class="table table-bordered">
         
@@ -236,7 +274,28 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/clean-blog.min.js"></script>
+<script>
+var app = angular.module("sampleApp", ["firebase"]);
 
+app.controller("SampleCtrl", function($scope, $firebaseArray) {
+  // var ref = new Firebase("https://twcloudwebapp-001.firebaseio.com/messages");
+  var ref = new Firebase("https://youbike2.firebaseio.com/c9");
+  
+
+  // create a synchronized array
+  $scope.messages = $firebaseArray(ref);
+
+  // add new items to the array
+  // the message is automatically added to our Firebase database!
+  $scope.addMessage = function() {
+    $scope.messages.$add({
+        text: $scope.newMessageText
+    });
+  };
+
+  // click on `index.html` above to see $remove() and $save() in action
+});
+</script>
 </body>
 
 </html>
