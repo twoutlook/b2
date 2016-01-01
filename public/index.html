@@ -103,12 +103,12 @@
         
         <!--    <th><a href="" ng-click="orderByField='sno'; reverseSort = !reverseSort">item</a></th> -->
             <tr>
- <th bgcolor="azure" style="width:10%; font-size:40%; vertical-align:middle"></th>
+<!--  <th bgcolor="azure" style="width:10%; font-size:40%; vertical-align:middle"></th> -->
 
 
-           <th bgcolor="azure" style="width:20%"><a href="" ng-click="orderByField='sarea'; reverseSort = !reverseSort"><i class="fa fa-map"></i></a></th>
+           <th bgcolor="azure" style="width:25%"><a href="" ng-click="orderByField='sarea'; reverseSort = !reverseSort"><i class="fa fa-map"></i></a></th>
 
-            <th  bgcolor="azure" style="width:40%"><a href="" ng-click="orderByField='sbi'; reverseSort = !reverseSort"><i class="fa fa-map-marker"></i></a></th>
+            <th  bgcolor="azure" style="width:45%"><a href="" ng-click="orderByField='sbi'; reverseSort = !reverseSort"><i class="fa fa-map-marker"></i></a></th>
 
 
 
@@ -125,7 +125,7 @@
 
             <tr ng-repeat="msg in messages |  filter:query | orderBy:orderByField:reverseSort" >
                 <!-- <td>{{ msg.sno }}</td> -->
-                <td>{{ 1+$index }}</td>
+                <!-- <td>{{ 1+$index }}</td> -->
                 <td>{{ msg.sarea }}</td>
                 <td>{{ msg.sna }}</td>
                 <td>{{ msg.sbi }}</td>
