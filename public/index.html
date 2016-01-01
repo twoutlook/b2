@@ -97,8 +97,11 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<i class="fa fa-camera-retro"></i> fa-camera-retro
-<i class="fa fa-bicycle"></i> bicycle icon here
+ <i class="fa fa-search"></i>
+    <input type="search"
+           class="form-control" 
+           placeholder="Search" 
+           ng-model="query"/>
 <table style='table-layout:fixed' class="table table-bordered">
         
         <!--    <th><a href="" ng-click="orderByField='sno'; reverseSort = !reverseSort">item</a></th> -->
@@ -122,7 +125,7 @@
 
             <tr ng-repeat="msg in messages |  filter:query | orderBy:orderByField:reverseSort" >
                 <!-- <td>{{ msg.sno }}</td> -->
-                <td>{{ 1+$index }}</td>
+                <!-- <td>{{ 1+$index }}</td> -->
                 <td>{{ msg.sarea }}</td>
                 <td>{{ msg.sna }}</td>
                 <td>{{ msg.sbi }}</td>
